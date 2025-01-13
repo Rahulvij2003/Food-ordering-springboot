@@ -18,16 +18,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
-
+public class CartItem {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
-
-    @JsonIgnore
     @ManyToOne
-    private Resturant resturant;
+    @JsonIgnore
+    private Cart cart;
+
+    @ManyToOne
+    private Food food;
 
 }

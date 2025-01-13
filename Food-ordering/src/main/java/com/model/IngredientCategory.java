@@ -1,5 +1,10 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -18,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class IngredientCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,4 +35,6 @@ public class Category {
     @ManyToOne
     private Resturant resturant;
 
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<IngredientsItem> ingredients = new ArrayList<>();
 }
