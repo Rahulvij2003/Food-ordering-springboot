@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -19,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartItem {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,5 +32,11 @@ public class CartItem {
 
     @ManyToOne
     private Food food;
+
+    private int quantity;
+
+    private List<String> ingredients;
+
+    private Long totalprice;
 
 }
